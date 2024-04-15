@@ -28,14 +28,12 @@ const Tenant = ({ tenant, sessionToken }) => {
       </div>
       <div className="sd-card sd-card--flex-grow">
         <div className="dashboard-content-header sd-shadow--z1">
-          <div className="big-number-block big-number-block--grow big-number-block--center">
+          <div className={`big-number-block big-number-block--grow big-number-block--center ${tenant.articles_count.toString().length > 5 ? 'big-number-block--wrap' : ''}`}>
             <div className="big-number-block__number">
               {tenant.articles_count}
             </div>
             <div className="big-number-block__text">
-              Published
-              <br />
-              items
+              Published <span>items</span>
             </div>
           </div>
           {!tenant.output_channel ? (
